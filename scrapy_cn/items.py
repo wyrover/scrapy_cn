@@ -1,11 +1,14 @@
-# Define here the models for your scraped items
+#!/usr/bin/env python
+#coding:utf-8
 #
-# See documentation in:
-# http://doc.scrapy.org/en/latest/topics/items.html
+# Copy right (c) Addbook.cn
+# Author:Yuan Lin
+#
+# Lisence: BSD
 
 from scrapy.item import Item, Field
 
 class ScrapyCnItem(Item):
-    # define the fields for your item here like:
-    # name = Field()
-    pass
+    title = Field()
+    desc = Field()
+    href = Field()

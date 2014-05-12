@@ -1,8 +1,19 @@
-# Define your item pipelines here
+#!/usr/bin/env python
+#coding:utf-8
 #
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
+# Copy right (c) Addbook.cn
+# Author:Yuan Lin
+#
+# Lisence: BSD
 
-class ScrapyCnPipeline(object):
+class JsonPipeline(object):
+    def process_item(self, item, spider):
+        return item
+
+class MysqlPipeline(object):
+    def process_item(self, item, spider):
+        return item
+
+class MongoPipeline(object):
     def process_item(self, item, spider):
         return item
