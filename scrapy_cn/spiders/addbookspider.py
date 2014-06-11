@@ -15,7 +15,7 @@ from scrapy import log
 from scrapy.contrib.loader import ItemLoader
 
 class AddbookSpider(Spider):
-    name = "Addbook"
+    name = "addbook"
     base_domian = "www.addbook.cn/"
     start_urls = ["http://www.addbook.cn"]
     
