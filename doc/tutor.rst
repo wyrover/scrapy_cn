@@ -21,8 +21,9 @@ scrapy快速指南
             -spiders/
                 <yourspiderfile.py> #你自己创建的spider文件
 
- * 说明：我们应该如何创建构建一个具体的抓取项目呢：
-    - 首先我们确定我们抓取的网站地址和页面<URL>,然后在spiders文件夹中穿件一个爬虫文件（命名自定），下面文件具备基本的爬虫功能::
+说明：我们应该如何创建构建一个具体的抓取项目呢：
+    
+ - 首先我们确定我们抓取的网站地址和页面<URL>,然后在spiders文件夹中穿件一个爬虫文件（命名自定），下面文件具备基本的爬虫功能::
         
         #<testspider.py>
         #coding:utf-8
@@ -40,7 +41,8 @@ scrapy快速指南
                 item = TestItem()
                 pass
     
-    - 这里需要注意我们的TestItem还未定义，因此要在items.py中定义这个类::
+ 
+ - 这里需要注意我们的TestItem还未定义，因此要在items.py中定义这个类::
 
         #<items.py>
         #coding:utf-8
@@ -51,5 +53,5 @@ scrapy快速指南
             link = Field()
             desc = Field()
     
-    - 定义piplelines,用于输出数据
+ - 定义piplelines,用于输出数据
 
