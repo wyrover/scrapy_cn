@@ -15,16 +15,26 @@ from scrapy import log
 from scrapy.contrib.loader import ItemLoader
 
 class AddbookSpider(Spider):
-    name = "addbook"
-    base_domian = "www.addbook.cn/"
-    start_urls = ["http://www.addbook.cn"]
-    
+    """Crawl <book.douban.com>
+       crawling only one page
+       save data to db and json with utf-8
+    """
+    name = "onepage"
+    base_domian = "book.douban.com"
+    start_urls = (
+            "http://book.douban.com/tag/Programming"
+            )
+
     def parse(self, response):
-        pass
-    
-    def parse_items(self, response):
-        pass
-    
-    def UrlProcess(self, url):
-        pass
-    pass
+        doc = Selector(response)
+        item = ScrapyCnItem()
+        sect = doc.xpath("//ul[@class='subject-list']/")
+        for s in sect:
+            title = s.xpath(".//li/div[@class='info']//a/@title").extract()
+            href = s.xpath(".//li/div[@class='info']//a/@href").extract()
+            img = s.xpath(".//li/div[@class='pic']//img/@src").extract()
+            desc = s.xpath(".//li/div[@class='info']/p/text()").extract()
+            item["title"] = [t.encode('utf-8') for t in title]
+            item["img"] = [i.encode('utf-8') for i in img]
+            item["desc"] = [d.encode('utf-8') for d in desc]
+        return item

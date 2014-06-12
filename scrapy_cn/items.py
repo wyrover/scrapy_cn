@@ -10,5 +10,6 @@ from scrapy.item import Item, Field
 
 class ScrapyCnItem(Item):
     title = Field()
+    img = Field()
     desc = Field()
     href = Field()
