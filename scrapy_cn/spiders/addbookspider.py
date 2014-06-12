@@ -28,7 +28,7 @@ class AddbookSpider(Spider):
     def parse(self, response):
         doc = Selector(response)
         item = ScrapyCnItem()
-        sect = doc.xpath("//ul[@class='subject-list']/")
+        sect = doc.xpath("//ul[@class='subject-list']")
         for s in sect:
             title = s.xpath(".//li/div[@class='info']//a/@title").extract()
             href = s.xpath(".//li/div[@class='info']//a/@href").extract()

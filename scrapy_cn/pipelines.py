@@ -6,6 +6,8 @@
 #
 # Lisence: BSD
 
+import json
+import codecs
 
 class JsonPipeline(object):
     def __init__(self):
